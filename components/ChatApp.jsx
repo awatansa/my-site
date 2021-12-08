@@ -5,7 +5,7 @@ export default function ChatApp() {
     const [session] = useSession()
     return (
         <div className={styles.chat}>
-            {session && <h3>Welcome {session.user}</h3>}
+            {session && <h3>Welcome {session.user.name} <img src={session.user.image} alt={"Profile Picture"}/></h3>}
             {!session && <h3>Please Login First</h3>}
         </div>
     )
