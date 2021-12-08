@@ -4,13 +4,12 @@ import styles from "styles/Home.module.css";
 import {useFavicon, useTitle} from "utils/hooks";
 import {URL} from "utils/constants"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {library} from "@fortawesome/fontawesome-svg-core";
 import {faExternalLinkAlt} from "@fortawesome/free-solid-svg-icons"
 
 export default function Home() {
     const favicon = useFavicon();
-    library.add()
     useTitle("Home");
+
     return (
         <div className={styles.container}>
             <Head>
