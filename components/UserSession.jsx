@@ -17,14 +17,14 @@ export default function UserSession() {
     console.log(session)
 
     return (
-        <div className={"header"}>
+        <>
             {session && (
                 <>
-                    <p>{session.user}</p>
+                    <p>{session.user.name}</p>&nbsp;
                     <a href="#" onClick={handleSignOut}>Sign out</a>
                 </>
             )}
             {!session && <a href="#" onClick={handleSignIn}>Sign in</a>}
-        </div>
+        </>
     )
 }
