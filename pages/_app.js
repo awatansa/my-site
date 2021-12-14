@@ -1,18 +1,18 @@
 import "../styles/globals.css";
-import {Provider} from "next-auth/client";
-import {config} from "@fortawesome/fontawesome-svg-core";
+import { SessionProvider } from "next-auth/react";
+import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Layout from "../components/Layout";
 
 config.autoAddCss = false;
 
-function MyApp({Component, pageProps}) {
+function MyApp({ Component, pageProps }) {
   return (
-    <Provider session={pageProps.session}>
+    <SessionProvider options={{ staleTime: 0, refetchInterval: 0 }} session={pageProps.session}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </Provider>
+    </SessionProvider>
   );
 }
 
