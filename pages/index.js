@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useTitle } from "utils/hooks";
+import { useTitle } from "core/utils/hooks";
 import Index from "components/Index";
 
 export default function HomePage() {
@@ -9,10 +9,7 @@ export default function HomePage() {
     <>
       <Head>
         <title>Awatansa: Portfolio</title>
-        <meta
-          name="description"
-          content="Welcome to Awatansa: Portfolio web app"
-        />
+        <meta name="description" content="Welcome to Awatansa: Portfolio web app" />
       </Head>
       <Index />
     </>

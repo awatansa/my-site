@@ -6,10 +6,7 @@ export default function PrivacyPage() {
     <>
       <Head>
         <title>Privacy Page</title>
-        <meta
-          name={"description"}
-          content={"Read the privacy page about the application"}
-        />
+        <meta name={"description"} content={"Read the privacy page about the application"} />
       </Head>
       <Privacy />
     </>

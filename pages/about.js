@@ -6,10 +6,7 @@ export default function AboutPage() {
     <>
       <Head>
         <title>About Application</title>
-        <meta
-          name={"description"}
-          content={"Find more about the application"}
-        />
+        <meta name={"description"} content={"Find more about the application"} />
       </Head>
       <About />
     </>

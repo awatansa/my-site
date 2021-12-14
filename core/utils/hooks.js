@@ -1,5 +1,5 @@
-import {useEffect} from "react";
-import {useSession as useNextAuthSession} from "next-auth/client";
+import { useEffect } from "react";
+import { useSession as useNextAuthSession } from "next-auth/react";
 
 export function useTitle(newTitle) {
   let title;
@@ -21,59 +21,57 @@ export function useFavicon() {
     switch (rand) {
       case 1:
         // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-64x64.nj.ico"/>;
+        return <link rel="icon" href="/favicon/favicon-64x64.nj.ico" />;
       case 2:
         // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-64x64.nj.ico"/>;
+        return <link rel="icon" href="/favicon/favicon-64x64.nj.ico" />;
       case 3:
         // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-64x64.nj.ico"/>;
+        return <link rel="icon" href="/favicon/favicon-64x64.nj.ico" />;
       case 4:
         // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-48x48.sp.png"/>;
+        return <link rel="icon" href="/favicon/favicon-48x48.sp.png" />;
       case 5:
         // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-48x48.sp.png"/>;
+        return <link rel="icon" href="/favicon/favicon-48x48.sp.png" />;
       case 6:
         // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-48x48.sp.png"/>;
+        return <link rel="icon" href="/favicon/favicon-48x48.sp.png" />;
       case 7:
         // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-96x96.me.png"/>;
+        return <link rel="icon" href="/favicon/favicon-96x96.me.png" />;
       case 8:
         // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-96x96.me.png"/>;
+        return <link rel="icon" href="/favicon/favicon-96x96.me.png" />;
       case 9:
         // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-96x96.me.png"/>;
+        return <link rel="icon" href="/favicon/favicon-96x96.me.png" />;
       case 0:
         // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-96x96.me.png"/>;
+        return <link rel="icon" href="/favicon/favicon-96x96.me.png" />;
       default:
         // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-96x96.me.png"/>;
+        return <link rel="icon" href="/favicon/favicon-96x96.me.png" />;
     }
   };
   return favicon;
 }
 
 export function useSession() {
-  const [session] = useNextAuthSession();
+  const { data, status } = useNextAuthSession();
 
   if (process.env.NODE_ENV === "development") {
-    return [
-      // Sample Data
-      {
+    return {
+      data: {
         user: {
           name: "Awatansa Vishwakarma",
           email: "ravi.awatansa@gmail.com",
-          image:
-            "https://lh3.googleusercontent.com/a-/AOh14GgDgf1QQ5yjRXhI4xWu7Y6dx7HxPSbYrCVTI1D8RgU=s96-c",
+          image: "https://lh3.googleusercontent.com/a-/AOh14GgDgf1QQ5yjRXhI4xWu7Y6dx7HxPSbYrCVTI1D8RgU=s96-c",
         },
         expires: "2022-01-09T17:19:38.745Z",
       },
-    ];
+      status: "authenticated",
+    };
   }
-
-  return [session];
+  return { data, status };
 }
