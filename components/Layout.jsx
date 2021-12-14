@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { URL } from "../utils/constants";
+import { URL } from "core/utils/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import Login from "./Login";
 import Head from "next/head";
-import { useFavicon } from "../utils/hooks";
+import { useFavicon } from "core/utils/hooks";
 
 export default function Layout({ children }) {
   const favicon = useFavicon();

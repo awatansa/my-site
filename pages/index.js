@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useTitle } from "utils/hooks";
+import { useTitle } from "core/utils/hooks";
 import Index from "components/Index";
 
 export default function HomePage() {

@@ -1,5 +1,5 @@
 import {signIn, signOut} from "next-auth/client";
-import {useSession} from "utils/hooks";
+import {useSession} from "core/utils/hooks";
 import {faUser} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Image from "next/image"
