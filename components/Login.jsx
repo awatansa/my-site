@@ -1,48 +1,73 @@
-import { signIn } from "next-auth/react";
-import Image from "components/Image";
-import GoogleLogo from "core/assets/svg/icons8-google.svg";
+import { signIn, signOut } from "next-auth/react";
+import { useSession } from "core/utils/hooks";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 
-export default function Login({ providers }) {
-  console.log(providers);
+export default function Login({ className }) {
+  const { data: session } = useSession();
 
-  function Brand() {
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    signIn().then((res) => console.log(res));
+  };
+
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    signOut().then((res) => console.log(res));
+  };
+
+  function UserImage() {
     return (
-      <div>
-        <h3 className={"text-6xl font-bold text-24"}>Login to Access More</h3>
-        <p className={"pt-8"}>There is much more awaiting for you after you login.</p>
+      <div
+        className={
+          "w-[24px] h-[24px] rounded-full ring-2 ring-offset-2 ring-offset-1 ring-offset-slate-400 overflow-hidden dark:ring-offset-slate-600"
+        }
+      >
+        <Image src={session.user.image} alt={session.user.name} width={24} height={24} />
       </div>
     );
   }
 
-  function LoginButton({ provider }) {
+  function UserIcon() {
     return (
-      <button
-        key={provider.id}
+      <div
         className={
-          "flex items-center gap-2 bg-white rounded-md shadow-md overflow-hidden " +
-          "text-slate-600 bg-white hover:bg-slate-100 " +
-          "dark:text-slate-200 dark:bg-slate-600 dark:hover:bg-slate-700 dark:shadow-slate-700 "
+          "flex justify-center items-center h-[24px] w-[24px] rounded-full bg-slate-400 ring-2 ring-offset-2 ring-offset-slate-400 dark:bg-slate-600 dark:ring-offset-slate-600"
         }
-        onClick={() => signIn(provider.id)}
       >
-        <Image className={"p-2 bg-slate-200 dark:bg-slate-200"} width={24} height={24} src={GoogleLogo} alt={provider.name} />
-        <span className={"pt-2 pr-2 pb-2 truncate"}>Sign in with {provider.name}</span>
-      </button>
+        <FontAwesomeIcon icon={faUser} />
+      </div>
     );
   }
 
   return (
     <>
-      <div className={"flex h-full divide-x divide-slate-400 dark:-divide-slate-700"}>
-        <div className={"flex justify-center items-center w-full"}>
-          <Brand />
-        </div>
-        <div className={"flex justify-center items-center mx-auto min-w-fit px-12"}>
-          {Object.values(providers)?.map((provider) => (
-            <LoginButton key={provider.id} provider={provider} />
-          ))}
-        </div>
-      </div>
+      <ul className={className}>
+        {session ? (
+          <>
+            <li>
+              <a className={"cursor-pointer"} onClick={handleSignOut}>
+                Sign Out
+              </a>
+            </li>
+            <li>
+              <UserImage />
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <a className={"cursor-pointer"} onClick={handleSignIn}>
+                Sign In
+              </a>
+            </li>
+            <li>
+              <UserIcon />
+            </li>
+          </>
+        )}
+      </ul>
     </>
   );
 }

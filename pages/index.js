@@ -9,7 +9,10 @@ export default function HomePage() {
     <>
       <Head>
         <title>Awatansa: Portfolio</title>
-        <meta name="description" content="Welcome to Awatansa: Portfolio web app" />
+        <meta
+          name="description"
+          content="Welcome to Awatansa: Portfolio web app"
+        />
       </Head>
       <Index />
     </>
