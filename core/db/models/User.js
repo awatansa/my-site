@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 export const userSchema = new Schema({
   name: String,
@@ -6,10 +6,10 @@ export const userSchema = new Schema({
   image: String,
   meta: {
     isSpecial: Boolean,
-    data: String,
-  },
+    data: String
+  }
 });
 
 const User = mongoose.model("User", userSchema);
 
-export default User;
+export default mongoose.models.User || User;
