@@ -1,4 +1,5 @@
 import { useSession as useNextAuthSession } from "next-auth/react";
+import { isDev } from "core/utils/constants";
 
 
 export function useFavicon() {
@@ -47,7 +48,7 @@ export function useFavicon() {
 export function useSession() {
   const { data, status } = useNextAuthSession();
 
-  if (process.env.NODE_ENV === "development") {
+  if (isDev) {
     return {
       data: {
         user: {

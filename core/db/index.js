@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-
-const MONGODB_URI = process.env.MONGODB_URI;
+import { MONGODB_URI } from "core/utils/constants";
 
 if (!MONGODB_URI) {
   throw new Error("MONGODB_URI is not defined in environment variable.");
