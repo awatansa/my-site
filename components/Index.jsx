@@ -4,7 +4,7 @@ import classes from "styles/Home.module.css";
 export default function Index() {
   const rootRef = useRef();
   const [data, setData] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(true);
 
   function handleScroll(e) {
     // ref.current.scrollLeft += e.deltaY;
@@ -12,7 +12,9 @@ export default function Index() {
 
   async function loadData() {
     const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-    return await res.json();
+    const data = await res.json();
+    setIsLoading(false);
+    return data;
   }
 
   useEffect(() => {
@@ -35,7 +37,8 @@ export default function Index() {
       <div ref={rootRef}
            className={`${classes.scroll} flex flex-col flex-wrap gap-2 justify-between overflow-x-auto overflow-y-hidden scroll-smooth snap-x w-full h-full pb-2`}
            onWheel={handleScroll}>
-        {data && data.map((item, index) => <Test key={index} data={item} />)}
+        {isLoading ? <h3 className={"text-2xl"}>Loading...</h3> : data.map((item, index) => <Test key={index}
+                                                                                                  data={item} />)}
       </div>
     </div>
   );
