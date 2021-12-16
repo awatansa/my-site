@@ -23,10 +23,13 @@ export default function Layout({ children }) {
         }
       >
         <div
+          className={"absolute w-full h-full bg-gradient-to-tr " +
+          "from-purple-700 to-blue-500 lg:from-rose-200 lg:to-violet-300 lg:animate-none animate-pulse"} />
+        <div
           className={
-            "relative flex flex-col px-4 w-10/12 h-5/6 bg-gray-200 divide-y rounded-lg shadow-lg opacity-95 " +
-            "divide-slate-400 shadow-slate-600/50 " +
-            "dark:bg-slate-800 dark:shadow-slate-700/50"
+            "relative flex flex-col px-4 lg:w-10/12 lg:h-5/6 w-full h-full divide-y lg:rounded-lg shadow-lg opacity-85 " +
+            "bg-gray-200/80 divide-slate-400/50 shadow-slate-600/50 " +
+            "dark:bg-slate-800/80 dark:shadow-slate-700/50"
           }
         >
           <nav className={"relative"}>
@@ -59,7 +62,7 @@ export default function Layout({ children }) {
               <Accounts className={"col-span-1 flex justify-evenly"} />
             </div>
           </nav>
-          <main className={"relative flex flex-col flex-1 py-4"}>{children}</main>
+          <main className={"relative flex grow p-2 overflow-hidden"}>{children}</main>
         </div>
       </div>
     </>
