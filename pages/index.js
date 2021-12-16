@@ -1,10 +1,7 @@
 import Head from "next/head";
-import { useTitle } from "core/utils/hooks";
 import Index from "components/Index";
 
 export default function HomePage() {
-  useTitle("Home");
-
   return (
     <>
       <Head>
