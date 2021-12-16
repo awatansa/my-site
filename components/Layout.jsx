@@ -24,7 +24,8 @@ export default function Layout({ children }) {
       >
         <div
           className={"absolute w-full h-full bg-gradient-to-tr " +
-          "from-purple-700 to-blue-500 lg:from-rose-200 lg:to-violet-300 lg:animate-none animate-pulse"} />
+          "from-purple-700 to-blue-500 lg:from-rose-200 lg:to-violet-300 lg:animate-none animate-pulse " +
+          "dark:lg:from-purple-900 dark:lg:to-indigo-800"} />
         <div
           className={
             "relative flex flex-col px-4 lg:w-10/12 lg:h-5/6 w-full h-full divide-y lg:rounded-lg shadow-lg opacity-85 " +

@@ -1,28 +1,41 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import classes from "styles/Home.module.css";
 
 export default function Index() {
-  const arr = Array(500).fill("Value");
-  const ref = useRef();
+  const rootRef = useRef();
+  const [data, setData] = useState([]);
+
 
   function handleScroll(e) {
     // ref.current.scrollLeft += e.deltaY;
   }
 
-  function Test(props) {
-    let height = Math.floor(Math.random() * 200);
-    let width = Math.floor(Math.random() * 200);
-    if (height < 50) height = 50;
-    if (width < 50) width = 50;
-    return <div style={{ height, width }} className={"flex justify-center items-center bg-slate-500 w-72 snap-start shadow-md rounded"}>{props.arr}</div>;
+  async function loadData() {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    return await res.json();
+  }
+
+  useEffect(() => {
+    loadData().then(data => setData(data));
+  });
+
+
+  function Test({ data }) {
+    return (
+      <div
+        className={"flex flex-col justify-center gap-2 w-96 bg-slate-200 dark:bg-slate-700 snap-start shadow-md rounded p-2"}>
+        <h3 className={"font-bold text-xl uppercase"}>{data.title}</h3>
+        <p>{data.body}</p>
+      </div>
+    );
   }
 
   return (
     <div className={"inline-block h-full w-full overflow-hidden"}>
-      <div ref={ref}
-           className={`${classes.scroll} flex flex-col flex-wrap gap-2 justify-evenly overflow-x-auto overflow-y-hidden scroll-smooth snap-x w-full h-full`}
+      <div ref={rootRef}
+           className={`${classes.scroll} flex flex-col flex-wrap gap-2 justify-between overflow-x-auto overflow-y-hidden scroll-smooth snap-x w-full h-full pb-2`}
            onWheel={handleScroll}>
-        {arr.map((item, index) => <Test key={index} arr={index} />)}
+        {data && data.map((item, index) => <Test key={index} data={item} />)}
       </div>
     </div>
   );
