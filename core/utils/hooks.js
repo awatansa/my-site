@@ -1,48 +1,30 @@
 import { useSession as useNextAuthSession } from "next-auth/react";
 import { isDev } from "core/utils/constants";
+import * as path from "path";
 
 
 export function useFavicon() {
-  // noinspection UnnecessaryLocalVariableJS
-  const favicon = () => {
+  const faviconLink = () => {
     const rand = Math.floor(Math.random() * 10);
     switch (rand) {
       case 1:
-        // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-64x64.nj.ico" />;
       case 2:
-        // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-64x64.nj.ico" />;
       case 3:
-        // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-64x64.nj.ico" />;
+        return path.resolve("favicon","favicon-64x64.nj.ico");
       case 4:
-        // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-48x48.sp.png" />;
       case 5:
-        // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-48x48.sp.png" />;
       case 6:
-        // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-48x48.sp.png" />;
+        return path.resolve("favicon","favicon-48x48.sp.png");
       case 7:
-        // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-96x96.me.png" />;
       case 8:
-        // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-96x96.me.png" />;
       case 9:
-        // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-96x96.me.png" />;
       case 0:
-        // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-96x96.me.png" />;
+        return path.resolve("favicon","favicon-96x96.me.png");
       default:
-        // noinspection HtmlUnknownTarget
-        return <link rel="icon" href="/favicon/favicon-96x96.me.png" />;
+        return path.resolve("favicon","favicon-96x96.me.png");
     }
   };
-  return favicon;
+  return { faviconLink };
 }
 
 export function useSession() {

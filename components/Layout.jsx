@@ -7,12 +7,12 @@ import Head from "next/head";
 import { useFavicon } from "core/utils/hooks";
 
 export default function Layout({ children }) {
-  const favicon = useFavicon();
+  const { faviconLink } = useFavicon();
   return (
     <>
       <Head>
         <title>Awatansa:Portfolio</title>
-        {favicon()}
+        <link rel="icon" href={faviconLink()} />
       </Head>
 
       <div
