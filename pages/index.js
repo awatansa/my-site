@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Index from "components/Index";
+import Main from "components/Main";
 
 export default function HomePage() {
   return (
@@ -11,7 +11,7 @@ export default function HomePage() {
           content="Welcome to Awatansa: Portfolio web app"
         />
       </Head>
-      <Index />
+      <Main />
     </>
   );
 }
