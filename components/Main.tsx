@@ -12,7 +12,8 @@ export default function Main() {
 
   function Intro() {
     return (
-      <div className={"relative flex flex-col flex-grow gap-4 h-54 p-10 w-full lg:w-3/6 rounded-md lg:hover:bg-slate-50/5 lg:bg-transparent bg-slate-50/5"}>
+      <div
+        className={"relative flex flex-col flex-grow gap-4 h-54 p-10 w-full lg:w-3/6 rounded-md lg:hover:bg-slate-50/5 lg:bg-transparent bg-slate-50/5"}>
         <section>
           <h2 className={"font-semibold text-6xl"}>
             I&apos;m <br /><span
@@ -33,26 +34,30 @@ export default function Main() {
         </section>
         <section>
           <div className={"flex gap-4 text-2xl"}>
-            <button className={"bg-slate-50/5 rounded p-2"} onClick={() => router.push("https://developers.google.com/profile/u/awatansa")}><FaGoogle />
+            <button className={"bg-slate-50/5 rounded p-2"}
+                    onClick={() => router.push("https://developers.google.com/profile/u/awatansa")}><FaGoogle />
             </button>
-            <button className={"bg-slate-50/5 rounded p-2"} onClick={() => router.push("https://github.com/awatansa")}><FaGithub /></button>
-            <button className={"bg-slate-50/5 rounded p-2"} onClick={() => router.push("https://linkedin.com/in/awatansa")}><FaLinkedin /></button>
+            <button className={"bg-slate-50/5 rounded p-2"} onClick={() => router.push("https://github.com/awatansa")}>
+              <FaGithub /></button>
+            <button className={"bg-slate-50/5 rounded p-2"}
+                    onClick={() => router.push("https://linkedin.com/in/awatansa")}><FaLinkedin /></button>
           </div>
         </section>
       </div>
     );
   }
 
-  function Skills(){
+  function Skills() {
     return (
-      <div className={"relative flex flex-grow gap-4 p-10 rounded-lg lg:hover:bg-slate-50/5 lg:bg-transparent bg-slate-50/5"}>
-        <ul>
-          <li>Java Spring Boot</li>
-          <li>Java Spring Boot</li>
-          <li>Java Spring Boot</li>
-        </ul>
+      <div
+        className={"relative flex flex-grow gap-4 p-10 rounded-lg lg:hover:bg-slate-50/5 lg:bg-transparent bg-slate-50/5"}>
+        {/*<ul>*/}
+        {/*  <li>Java Spring Boot</li>*/}
+        {/*  <li>Java Spring Boot</li>*/}
+        {/*  <li>Java Spring Boot</li>*/}
+        {/*</ul>*/}
       </div>
-    )
+    );
   }
 
   return (

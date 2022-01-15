@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 
 export default function Accounts({ className }) {
-  const { data, status } = useSession();
+  const { data } = useSession();
   const handleSignIn = (e) => {
     e.preventDefault();
     signIn().then((res) => console.log(res));

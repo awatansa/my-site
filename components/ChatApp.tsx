@@ -3,7 +3,7 @@ import { signIn } from "next-auth/react";
 import { ChatSidebar, ChatSuggestionSidebar, ChatMain } from "components";
 
 export default function ChatApp() {
-  const { data, status } = useSession();
+  const { data } = useSession();
 
   function LoginFirst() {
     return (
