@@ -7,12 +7,13 @@ import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
 import { FaGoogle } from "@react-icons/all-files/fa/FaGoogle";
 import { useRouter } from "next/router";
 
-export default function Index() {
+export default function Main() {
   const router = useRouter();
 
   function Intro() {
     return (
-      <div className={"flex flex-col gap-4 h-54 p-10 w-fit"}>
+      <div
+        className={"relative flex flex-col flex-grow gap-4 h-54 p-10 w-full lg:w-3/6 rounded-md lg:hover:bg-slate-50/5 lg:bg-transparent bg-slate-50/5"}>
         <section>
           <h2 className={"font-semibold text-6xl"}>
             I&apos;m <br /><span
@@ -33,10 +34,17 @@ export default function Index() {
         </section>
         <section>
           <div className={"flex gap-4 text-2xl"}>
-            <button onClick={() => router.push("https://developers.google.com/profile/u/awatansa")}><FaGoogle />
+            <button className={"bg-slate-50/5 rounded p-2 hover:shadow-md"}
+                    onClick={() => router.push("https://developers.google.com/profile/u/awatansa")}>
+              <FaGoogle />
             </button>
-            <button onClick={() => router.push("https://github.com/awatansa")}><FaGithub /></button>
-            <button onClick={() => router.push("https://linkedin.com/in/awatansa")}><FaLinkedin /></button>
+            <button className={"bg-slate-50/5 rounded p-2 hover:shadow-md"} onClick={() => router.push("https://github.com/awatansa")}>
+              <FaGithub />
+            </button>
+            <button className={"bg-slate-50/5 rounded p-2 hover:shadow-md"}
+                    onClick={() => router.push("https://linkedin.com/in/awatansa")}>
+              <FaLinkedin />
+            </button>
           </div>
         </section>
       </div>
@@ -46,7 +54,7 @@ export default function Index() {
   return (
     <div className={"inline-block h-full w-full overflow-hidden"}>
       <div
-        className={`${classes.scroll} flex flex-col flex-wrap gap-2 justify-between overflow-x-auto snap-x overflow-y-hidden w-full h-full pb-2`}
+        className={`${classes.scroll} flex flex-col flex-wrap flex-grow gap-2 justify-between overflow-x-auto snap-x overflow-y-hidden w-full h-full pb-2`}
       >
         <Intro />
       </div>

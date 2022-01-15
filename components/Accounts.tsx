@@ -3,15 +3,20 @@ import { useSession } from "core/utils/hooks";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import React from "react";
 
-export default function Accounts({ className }) {
-  const { data, status } = useSession();
-  const handleSignIn = (e) => {
+type Props = {
+  className: string
+}
+
+export default function Accounts({ className }: Props) {
+  const { data } = useSession();
+  const handleSignIn = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     signIn().then((res) => console.log(res));
   };
 
-  const handleSignOut = (e) => {
+  const handleSignOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     signOut().then((res) => console.log(res));
   };
@@ -25,7 +30,7 @@ export default function Accounts({ className }) {
           "dark:ring-offset-slate-600"
         }
       >
-        <Image src={data.user.image} alt={data.user.name} width={24} height={24} />
+        <Image src={data?.user?.image || ""} alt={data?.user?.name || ""} width={24} height={24} />
       </div>
     );
   }

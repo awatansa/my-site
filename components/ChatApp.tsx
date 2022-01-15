@@ -1,20 +1,9 @@
-import { faKissWinkHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSession } from "../core/utils/hooks";
+import { useSession } from "core/utils/hooks";
 import { signIn } from "next-auth/react";
+import { ChatSidebar, ChatSuggestionSidebar, ChatMain } from "components";
 
 export default function ChatApp() {
-  const { data, status } = useSession();
-
-  function TempComponent() {
-    return (
-      <div className={"flex justify-center items-center h-full"}>
-        <h1 className={"text-bold text-6xl text-slate-600 dark:text-slate-400"}>
-          Coming Soon... <FontAwesomeIcon icon={faKissWinkHeart} />
-        </h1>
-      </div>
-    );
-  }
+  const { data } = useSession();
 
   function LoginFirst() {
     return (
@@ -40,5 +29,21 @@ export default function ChatApp() {
     );
   }
 
-  return <div className={"w-full h-full"}>{data ? <TempComponent /> : <LoginFirst />}</div>;
+  return (
+    <div className={"w-full h-full"}>
+      {data ?
+        <div className={"relative flex justify-around items-center h-full w-full"}>
+          <div className="w-1/3 h-full m-1">
+            <ChatSidebar />
+          </div>
+          <div className="w-1/3 h-full m-1">
+            <ChatMain />
+          </div>
+          <div className="w-1/3 h-full m-1">
+            <ChatSuggestionSidebar />
+          </div>
+        </div>
+        : <LoginFirst />
+      }</div>
+  );
 };

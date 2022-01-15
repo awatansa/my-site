@@ -5,9 +5,11 @@ if (!MONGODB_URI) {
   throw new Error("MONGODB_URI is not defined in environment variable.");
 }
 
-let cached = global.mongoose;
+// @ts-ignore
+let cached: any = global.mongoose;
 
 if (!cached) {
+  // @ts-ignore
   cached = global.mongoose = { conn: null, promise: null };
 }
 
@@ -17,7 +19,7 @@ async function dbConnect() {
   }
 
   if (!cached.promise) {
-    cached.promise = await mongoose.connect(MONGODB_URI).catch((err) => console.log(err.message));
+    cached.promise = await mongoose.connect(MONGODB_URI || "mongodb://localhost:27017/test").catch((err) => console.log(err.message));
   }
 
   cached.conn = await cached.promise;
