@@ -1,13 +1,19 @@
 import { Wrapper } from "components";
 import { useEffect, useState } from "react";
 
+type Quote = {
+  msg: string,
+  author: string,
+}
+
 export default function ChatSidebar() {
-  const [quote, setQuote] = useState({});
+  const [quote, setQuote] = useState<Quote>({ msg: "Loading", author: "Loading" });
   useEffect(() => {
     async function fetchData() {
       const data = await fetch("/api/public/quotes").then(res => res.json());
       setQuote(data);
     }
+
     fetchData();
   }, []);
 

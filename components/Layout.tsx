@@ -5,8 +5,13 @@ import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import Accounts from "components/Accounts";
 import Head from "next/head";
 import { useFavicon } from "core/utils/hooks";
+import React from "react";
 
-export default function Layout({ children }) {
+type Props = {
+  children?: React.ReactNode;
+}
+
+export default function Layout({ children }: Props) {
   const { faviconLink } = useFavicon();
   return (
     <>
