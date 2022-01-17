@@ -10,18 +10,22 @@ export function useFavicon() {
       case 1:
       case 2:
       case 3:
-        return path.resolve("favicon","favicon-64x64.nj.ico");
+        return path.resolve("favicon", "favicon-64x64.nj.ico");
       case 4:
+        return path.resolve("favicon", "favicon-100x100.ss.ico");
       case 5:
       case 6:
-        return path.resolve("favicon","favicon-48x48.sp.png");
+        return path.resolve("favicon", "favicon-48x48.sp.png");
       case 7:
+        return path.resolve("favicon", "favicon-100x100.me.2.ico");
       case 8:
+        return path.resolve("favicon", "favicon-100x100.me.3.ico");
       case 9:
+        return path.resolve("favicon", "favicon-100x100.av.ico");
       case 0:
-        return path.resolve("favicon","favicon-96x96.me.png");
+        return path.resolve("favicon", "favicon-96x96.me.png");
       default:
-        return path.resolve("favicon","favicon-96x96.me.png");
+        return path.resolve("favicon", "favicon-96x96.me.png");
     }
   };
   return { faviconLink };
