@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { URL } from "core/utils/constants";
+import { URL } from "core/commons/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import Accounts from "components/Accounts";
 import Head from "next/head";
-import { useFavicon } from "core/utils/hooks";
+import { useFavicon } from "core/commons/hooks";
 import React from "react";
 
 type Props = {

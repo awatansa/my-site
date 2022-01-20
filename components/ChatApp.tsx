@@ -1,11 +1,12 @@
-import { useSession } from "core/utils/hooks";
+import { useSession } from "core/commons/hooks";
+import React from "react";
 import { signIn } from "next-auth/react";
-import { ChatSidebar, ChatSuggestionSidebar, ChatMain } from "components";
+import { ChatMain, ChatSidebar, ChatSuggestionSidebar } from "components";
 
 export default function ChatApp() {
   const { data } = useSession();
 
-  function LoginFirst() {
+  const LoginFirst: React.FC = () => {
     return (
       <div className={"flex flex-col justify-center items-center w-full h-full"}>
         <section>
@@ -27,19 +28,19 @@ export default function ChatApp() {
         </section>
       </div>
     );
-  }
+  };
 
   return (
     <div className={"w-full h-full"}>
       {data ?
         <div className={"relative flex justify-around items-center h-full w-full"}>
-          <div className="w-1/3 h-full m-1">
+          <div className="w-1/4 h-full m-1 rounded-md border dark:border-slate-600/50">
             <ChatSidebar />
           </div>
-          <div className="w-1/3 h-full m-1">
+          <div className="w-2/3 h-full m-1 rounded-md border dark:border-slate-600/50">
             <ChatMain />
           </div>
-          <div className="w-1/3 h-full m-1">
+          <div className="w-1/4 h-full m-1 rounded-md border dark:border-slate-600/50">
             <ChatSuggestionSidebar />
           </div>
         </div>

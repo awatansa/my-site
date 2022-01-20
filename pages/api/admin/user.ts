@@ -1,7 +1,7 @@
 import { getSession } from "next-auth/react";
-import { ADMIN } from "core/utils/constants";
+import { ADMIN } from "core/commons/constants";
 import httpStatus from "http-status";
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
   msg: string
@@ -10,7 +10,7 @@ type Data = {
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
-){
+) {
   const session = await getSession({ req });
   if (session?.user?.email === ADMIN) {
 
