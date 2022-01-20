@@ -2,7 +2,7 @@ import { getSession } from "next-auth/react";
 import httpStatus from "http-status";
 import type { NextApiHandler } from "next";
 import { ApiResponse } from "core/commons/types";
-import { createMessage } from "core/commons/utils";
+import { v4 as uuid } from "uuid";
 
 const handler: NextApiHandler<ApiResponse> = async (req, res) => {
   const session = await getSession({ req });
@@ -24,15 +24,21 @@ const handler: NextApiHandler<ApiResponse> = async (req, res) => {
   if (session?.user?.email) {
     // await dbConnect();
     res.status(httpStatus.OK).json({
-      data: createMessage(message, "admin")
+      data: {
+        id: uuid(),
+        message: message,
+        time: new Date().toLocaleString(),
+        from: "admin"
+      }
+    });
+  } else {
+    res.status(httpStatus.UNAUTHORIZED).json({
+      error: {
+        message: "User Not Logged In!",
+        code: httpStatus.UNAUTHORIZED
+      }
     });
   }
-  res.status(httpStatus.UNAUTHORIZED).json({
-    error: {
-      message: "User Not Logged In!",
-      code: httpStatus.UNAUTHORIZED
-    }
-  });
 };
 
 export default handler;
