@@ -1,5 +1,5 @@
 import { useSession as useNextAuthSession } from "next-auth/react";
-import { isDev } from "core/utils/constants";
+import { isDev } from "core/commons/constants";
 import * as path from "path";
 
 
@@ -8,14 +8,14 @@ export function useFavicon() {
     const rand = Math.floor(Math.random() * 10);
     switch (rand) {
       case 1:
-      case 2:
-      case 3:
         return path.resolve("favicon", "favicon-64x64.nj.ico");
-      case 4:
+      case 2:
         return path.resolve("favicon", "favicon-100x100.ss.ico");
+      case 3:
+        return path.resolve("favicon", "favicon-48x48.sp.png");
+      case 4:
       case 5:
       case 6:
-        return path.resolve("favicon", "favicon-48x48.sp.png");
       case 7:
         return path.resolve("favicon", "favicon-100x100.me.2.ico");
       case 8:
@@ -50,3 +50,4 @@ export function useSession() {
 
   return { data, status };
 }
+

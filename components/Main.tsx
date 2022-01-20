@@ -1,4 +1,3 @@
-import classes from "styles/Home.module.css";
 import { FaReact } from "@react-icons/all-files/fa/FaReact";
 import { SiSpring } from "@react-icons/all-files/si/SiSpring";
 import { SiMongodb } from "@react-icons/all-files/si/SiMongodb";
@@ -38,7 +37,8 @@ export default function Main() {
                     onClick={() => router.push("https://developers.google.com/profile/u/awatansa")}>
               <FaGoogle />
             </button>
-            <button className={"bg-slate-50/5 rounded p-2 hover:shadow-md"} onClick={() => router.push("https://github.com/awatansa")}>
+            <button className={"bg-slate-50/5 rounded p-2 hover:shadow-md"}
+                    onClick={() => router.push("https://github.com/awatansa")}>
               <FaGithub />
             </button>
             <button className={"bg-slate-50/5 rounded p-2 hover:shadow-md"}
@@ -54,7 +54,7 @@ export default function Main() {
   return (
     <div className={"inline-block h-full w-full overflow-hidden"}>
       <div
-        className={`${classes.scroll} flex flex-col flex-wrap flex-grow gap-2 justify-between overflow-x-auto snap-x overflow-y-hidden w-full h-full pb-2`}
+        className={`scroll flex flex-col flex-wrap flex-grow gap-2 justify-between overflow-x-auto snap-x overflow-y-hidden w-full h-full pb-2`}
       >
         <Intro />
       </div>

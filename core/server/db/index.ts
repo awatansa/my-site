@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { MONGODB_URI } from "core/utils/constants";
+import { MONGODB_URI } from "core/commons/constants";
 
 if (!MONGODB_URI) {
   throw new Error("MONGODB_URI is not defined in environment variable.");

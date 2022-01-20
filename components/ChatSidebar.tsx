@@ -1,29 +1,22 @@
 import { Wrapper } from "components";
-import { useEffect, useState } from "react";
-
-type Quote = {
-  msg: string,
-  author: string,
-}
+import ReactMarkdown from "react-markdown";
+import { useGetRandomQuoteQuery } from "../core/client/services/api";
 
 export default function ChatSidebar() {
-  const [quote, setQuote] = useState<Quote>({ msg: "Loading", author: "Loading" });
-  useEffect(() => {
-    async function fetchData() {
-      const data = await fetch("/api/public/quotes").then(res => res.json());
-      setQuote(data);
-    }
+  const { data, isLoading } = useGetRandomQuoteQuery({});
 
-    fetchData();
-  }, []);
-
-  console.log(quote);
+  function transformedQuote() {
+    return `> ${data?.quote}`;
+  }
 
   return (
-    <Wrapper className={"flex flex-col justify-center items-center"}>
-      <h1>Today&apos;s Gyan</h1>
-      <p>{quote.msg}</p>
-      <p>{quote.author}</p>
+    <Wrapper className={"flex flex-col dark:bg-slate-200/50 px-2"}>
+      {isLoading ? "Loading..." : <article className={"prose mt-4"}>
+        <ReactMarkdown>
+          {transformedQuote()}
+        </ReactMarkdown>
+        <p className={"text-sm text-right"}>{data?.author}</p>
+      </article>}
     </Wrapper>
   );
 }

@@ -1,7 +1,7 @@
-import dbConnect from "core/db";
+import dbConnect from "core/server/db";
 import { getSession } from "next-auth/react";
 import httpStatus from "http-status";
-import Log from "core/db/models/Log";
+import Log from "core/server/db/models/Log";
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
