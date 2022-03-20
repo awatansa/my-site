@@ -1,5 +1,5 @@
 import Head from "next/head";
-import ChatApp from "components/ChatApp";
+import { NotFound } from "../components";
 
 export default function ChatPage() {
   return (
@@ -8,7 +8,7 @@ export default function ChatPage() {
         <title>Chat With Awatansa:Bot</title>
         <meta name={"Awatansa Chat Bot"} />
       </Head>
-      <ChatApp />
+      <NotFound path={"/chat"} />
     </>
   );
 }
