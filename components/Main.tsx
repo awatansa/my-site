@@ -5,6 +5,7 @@ import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
 import { FaGoogle } from "@react-icons/all-files/fa/FaGoogle";
 import { useRouter } from "next/router";
+import Link from "next/link"
 
 export default function Main() {
   const router = useRouter();
@@ -51,12 +52,21 @@ export default function Main() {
     );
   }
 
+  function ResumeDownload(){
+    return(
+      <div className={"relative"}>
+        <Link href={"/resume/awatansa.pdf"} >Download Resume</Link>
+      </div>
+    )
+  }
+
   return (
     <div className={"inline-block h-full w-full overflow-hidden"}>
       <div
         className={`scroll flex flex-col flex-wrap flex-grow gap-2 justify-between overflow-x-auto snap-x overflow-y-hidden w-full h-full pb-2`}
       >
         <Intro />
+        <ResumeDownload/>
       </div>
     </div>
   );
