@@ -3,23 +3,23 @@ import { ChatList, Message } from "core/commons/types";
 import { v4 as uuid } from "uuid";
 
 type InitialState = {
-  chatFeed: ChatList,
+  chatFeed: ChatList;
   temp: {
-    newMessage: string
-  }
+    newMessage: string;
+  };
   meta: {
-    settings: string
-  }
-}
+    settings: string;
+  };
+};
 
 const initialState: InitialState = {
   meta: { settings: "" },
   temp: {
-    newMessage: ""
+    newMessage: "",
   },
   chatFeed: {
-    messages: []
-  }
+    messages: [],
+  },
 };
 
 const mainSlice = createSlice({
@@ -31,7 +31,7 @@ const mainSlice = createSlice({
         from: "admin",
         id: uuid(),
         message: "Stored Message",
-        time: Date.now().toLocaleString()
+        time: Date.now().toLocaleString(),
       });
     },
     pushMessage(state, action: PayloadAction<Message>) {
@@ -45,10 +45,11 @@ const mainSlice = createSlice({
     },
     updateTextBox(state, action: PayloadAction<string>) {
       state.temp.newMessage = action.payload;
-    }
-  }
+    },
+  },
 });
 
 const main = mainSlice.reducer;
 export const { loadChats, pushMessage, clearChatHistory, clearTextBox, updateTextBox } = mainSlice.actions;
 export default main;
+

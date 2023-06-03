@@ -1,15 +1,13 @@
-import Link from "next/link";
-import { URL } from "core/commons/constants";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import Accounts from "components/Accounts";
-import Head from "next/head";
+import { URL } from "core/commons/constants";
 import { useFavicon } from "core/commons/hooks";
+import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 
 type Props = {
   children?: React.ReactNode;
-}
+};
 
 export default function Layout({ children }: Props) {
   const { faviconLink } = useFavicon();
@@ -28,9 +26,12 @@ export default function Layout({ children }: Props) {
         }
       >
         <div
-          className={"absolute w-full h-full bg-gradient-to-tr " +
-          "from-purple-700 to-blue-500 lg:from-rose-200 lg:to-violet-300 lg:animate-none animate-pulse " +
-          "dark:lg:from-purple-900 dark:lg:to-indigo-800"} />
+          className={
+            "absolute w-full h-full bg-gradient-to-tr " +
+            "from-purple-700 to-blue-500 lg:from-rose-200 lg:to-violet-300 lg:animate-none animate-pulse " +
+            "dark:lg:from-purple-900 dark:lg:to-indigo-800"
+          }
+        />
         <div
           className={
             "relative flex flex-col px-4 lg:w-10/12 lg:h-5/6 w-full h-full divide-y lg:rounded-lg shadow-lg opacity-85 " +
@@ -42,27 +43,10 @@ export default function Layout({ children }: Props) {
             <div className={"relative grid grid-cols-3 mt-4 pt-2 pb-4"}>
               <ul className={"col-span-2 flex justify-evenly"}>
                 <li>
-                  <Link href={URL.HOME}>
-                    <a>Home</a>
-                  </Link>
+                  <Link href={URL.HOME}>Home</Link>
                 </li>
                 <li>
-                  <Link href={URL.CHAT}>
-                    <a>Chat</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={URL.ABOUT}>
-                    <a>About</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={URL.DISCORD}>
-                    <a target={"_blank"}>Discord </a>
-                  </Link>
-                  <sup>
-                    <FontAwesomeIcon size={"sm"} icon={faExternalLinkAlt} />
-                  </sup>
+                  <Link href={URL.ABOUT}>About</Link>
                 </li>
               </ul>
               <Accounts className={"col-span-1 flex justify-evenly"} />
@@ -74,3 +58,4 @@ export default function Layout({ children }: Props) {
     </>
   );
 }
+

@@ -6,6 +6,6 @@ export const createMessage: CreateMessage = (message, from) => {
     message: message ? message : "",
     id: uuid(),
     from: from,
-    time: new Date().toLocaleString()
+    time: new Date().toLocaleString(),
   };
 };

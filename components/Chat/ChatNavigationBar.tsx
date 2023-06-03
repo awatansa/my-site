@@ -10,14 +10,16 @@ const ChatNavigationBar: React.FC = () => {
     <nav className={"mt-1 p-2"}>
       <ul className={"flex gap-2 justify-around"}>
         <li>
-          <button className={"p-2 border rounded border-slate-400 dark:border-slate-600"} onClick={refetch}>Refresh
-            Quote
+          <button className={"p-2 border rounded border-slate-400 dark:border-slate-600"} onClick={refetch}>
+            Refresh Quote
           </button>
         </li>
         <li>
           <button
             className={"p-2 border rounded border-slate-400 dark:border-slate-600"}
-            onClick={() => dispatch(clearChatHistory())}>Clear Chat
+            onClick={() => dispatch(clearChatHistory())}
+          >
+            Clear Chat
           </button>
         </li>
       </ul>

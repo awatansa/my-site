@@ -5,30 +5,33 @@ import { ApiResponse, Message } from "../../core/commons/types";
 import { createMessage } from "../../core/commons/utils";
 
 const NewMessage: React.FC = () => {
-  const { newMessage } = useSelector(state => state.main.temp);
+  const { newMessage } = useSelector((state) => state.main.temp);
   const dispatch = useDispatch();
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = useCallback(async (event) => {
-    event.preventDefault();
+  const handleSubmit: FormEventHandler<HTMLFormElement> = useCallback(
+    async (event) => {
+      event.preventDefault();
 
-    // create new message object and add to Store
-    const clientMessage: Message = createMessage(newMessage, "client");
-    dispatch(pushMessage(clientMessage));
+      // create new message object and add to Store
+      const clientMessage: Message = createMessage(newMessage, "client");
+      dispatch(pushMessage(clientMessage));
 
-    // make api call
-    const options: RequestInit = {
-      body: JSON.stringify(clientMessage),
-      method: "POST"
-    };
-    const response: ApiResponse = await fetch("/api/user/chat", options).then(result => result.json());
-    if (response.data) {
-      dispatch(pushMessage(response.data));
-    } else {
-      dispatch(pushMessage(createMessage(response.error?.message, "admin")));
-    }
+      // make api call
+      const options: RequestInit = {
+        body: JSON.stringify(clientMessage),
+        method: "POST",
+      };
+      const response: ApiResponse = await fetch("/api/user/chat", options).then((result) => result.json());
+      if (response.data) {
+        dispatch(pushMessage(response.data));
+      } else {
+        dispatch(pushMessage(createMessage(response.error?.message, "admin")));
+      }
 
-    dispatch(clearTextBox());
-  }, [newMessage, dispatch]);
+      dispatch(clearTextBox());
+    },
+    [newMessage, dispatch]
+  );
 
   const handleInput: ChangeEventHandler<HTMLInputElement> = (event) => {
     dispatch(updateTextBox(event.currentTarget.value));
@@ -43,7 +46,9 @@ const NewMessage: React.FC = () => {
         onChange={handleInput}
         value={newMessage}
       />
-      <button className={"rounded border px-4 py-2"} type={"submit"}>Send</button>
+      <button className={"rounded border px-4 py-2"} type={"submit"}>
+        Send
+      </button>
     </form>
   );
 };

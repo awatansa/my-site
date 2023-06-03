@@ -15,3 +15,4 @@ const AboutPage: NextPage = () => {
 };
 
 export default AboutPage;
+

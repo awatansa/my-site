@@ -7,16 +7,16 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 export const store = configureStore({
   reducer: {
     main,
-    [api.reducerPath]: api.reducer
-  }
+    [api.reducerPath]: api.reducer,
+  },
 });
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
-
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 // type declaration for redux dispatcher and selector
 export const useDispatch = () => useAppDispatch<AppDispatch>();
 export const useSelector: TypedUseSelectorHook<RootState> = useAppSelector;
 
 setupListeners(store.dispatch);
+

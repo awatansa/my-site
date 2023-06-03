@@ -3,20 +3,21 @@ import { useSession } from "core/commons/hooks";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 type Props = {
-  className: string
-}
+  className: string;
+};
 
 export default function Accounts({ className }: Props) {
   const { data } = useSession();
-  const handleSignIn = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleSignIn = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     signIn().then((res) => console.log(res));
   };
 
-  const handleSignOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleSignOut = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     signOut().then((res) => console.log(res));
   };
@@ -55,9 +56,9 @@ export default function Accounts({ className }: Props) {
         {data ? (
           <>
             <li>
-              <a className={"cursor-pointer"} onClick={handleSignOut}>
+              <button className={"cursor-pointer"} onClick={handleSignOut}>
                 Sign Out
-              </a>
+              </button>
             </li>
             <li>
               <UserImage />
@@ -66,9 +67,9 @@ export default function Accounts({ className }: Props) {
         ) : (
           <>
             <li>
-              <a className={"cursor-pointer"} onClick={handleSignIn}>
+              <button className={"cursor-pointer"} onClick={handleSignIn}>
                 Sign In
-              </a>
+              </button>
             </li>
             <li>
               <UserIcon />
@@ -79,3 +80,4 @@ export default function Accounts({ className }: Props) {
     </>
   );
 }
+

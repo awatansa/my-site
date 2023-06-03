@@ -6,8 +6,8 @@ export const userSchema = new Schema({
   image: String,
   meta: {
     isSpecial: Boolean,
-    data: String
-  }
+    data: String,
+  },
 });
 
 const User = mongoose.model("User", userSchema);
