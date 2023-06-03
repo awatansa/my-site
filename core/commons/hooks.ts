@@ -2,7 +2,6 @@ import { useSession as useNextAuthSession } from "next-auth/react";
 import { isDev } from "core/commons/constants";
 import * as path from "path";
 
-
 export function useFavicon() {
   const faviconLink = () => {
     const rand = Math.floor(Math.random() * 10);
@@ -40,11 +39,11 @@ export function useSession() {
         user: {
           name: "Awatansa Vishwakarma",
           email: "ravi.awatansa@gmail.com",
-          image: "https://lh3.googleusercontent.com/a-/AOh14GgDgf1QQ5yjRXhI4xWu7Y6dx7HxPSbYrCVTI1D8RgU=s96-c"
+          image: "https://lh3.googleusercontent.com/a-/AOh14GgDgf1QQ5yjRXhI4xWu7Y6dx7HxPSbYrCVTI1D8RgU=s96-c",
         },
-        expires: "2022-01-09T17:19:38.745Z"
+        expires: "2022-01-09T17:19:38.745Z",
       },
-      status: "authenticated"
+      status: "authenticated",
     };
   }
 

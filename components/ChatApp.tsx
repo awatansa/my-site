@@ -32,7 +32,7 @@ export default function ChatApp() {
 
   return (
     <div className={"w-full h-full"}>
-      {data ?
+      {data ? (
         <div className={"relative flex justify-around items-center h-full w-full"}>
           <div className="w-1/4 h-full m-1 rounded-md border dark:border-slate-600/50">
             <ChatSidebar />
@@ -44,7 +44,10 @@ export default function ChatApp() {
             <ChatSuggestionSidebar />
           </div>
         </div>
-        : <LoginFirst />
-      }</div>
+      ) : (
+        <LoginFirst />
+      )}
+    </div>
   );
-};
+}
+

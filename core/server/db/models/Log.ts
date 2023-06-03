@@ -3,10 +3,10 @@ import mongoose, { Schema } from "mongoose";
 export const logSchema = new Schema({
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   message: String,
-  api: String
+  api: String,
 });
 
 const Log = mongoose.model("Log", logSchema);

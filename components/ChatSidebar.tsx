@@ -11,12 +11,14 @@ export default function ChatSidebar() {
 
   return (
     <Wrapper className={"flex flex-col dark:bg-slate-200/50 px-2"}>
-      {isLoading ? "Loading..." : <article className={"prose mt-4"}>
-        <ReactMarkdown>
-          {transformedQuote()}
-        </ReactMarkdown>
-        <p className={"text-sm text-right"}>{data?.author}</p>
-      </article>}
+      {isLoading ? (
+        "Loading..."
+      ) : (
+        <article className={"prose mt-4"}>
+          <ReactMarkdown>{transformedQuote()}</ReactMarkdown>
+          <p className={"text-sm text-right"}>{data?.author}</p>
+        </article>
+      )}
     </Wrapper>
   );
 }

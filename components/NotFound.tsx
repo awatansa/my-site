@@ -3,7 +3,7 @@ import { faSadCry } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
   path: string;
-}
+};
 
 export default function NotFound(props: Props) {
   return (
@@ -14,3 +14,4 @@ export default function NotFound(props: Props) {
     </div>
   );
 }
+
